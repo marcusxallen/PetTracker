@@ -22,7 +22,7 @@
     </div>
 
     <div id="navbar">
-        <div class="ui secondary pointing menu">
+        <div class="ui fluid secondary pointing menu">
             <a class="active item">Home</a>
             <!-- <a class="item">Account | TBD</a>
             <a class="item">Log | TBD</a>
@@ -41,12 +41,15 @@
                 </div>
                 <div class="row">
                     <div class="ui input focus">
-                        <input type="text" placeholder="Name" id="userPetName">
+                        <input type="text" placeholder="Caretaker Name" id="userName">
                     </div>
                     <div class="ui input focus">
-                        <input type="text" placeholder="Picture (URL)" id="userPetPicSrc">
+                        <input type="text" placeholder="Pet Name" id="userPetName">
                     </div>
-                    <button class="ui primary button" id="userSetupSubmitButton">
+                    <div class="ui input focus">
+                        <input type="text" placeholder="Picture (URL)" id="picInput">
+                    </div>
+                    <button class="ui blue button" id="userSetupSubmitButton">
                         Save
                     </button>
                 </div>
@@ -57,13 +60,13 @@
 
         <div id="about">
             <div class="ui stackable centered grid">
-                <div class="row">
+                <!-- <div class="row">
                     <h2 class="ui header">About</h2>
-                </div>
+                </div> -->
                 <div class="row">
                     <h3 class="ui header" id="welcomeText">Welcome!</h3>
                 </div>
-                
+                <img class="hidden ui image" height="600px" id="petPic" src="">
             </div>
         </div>
         
@@ -77,8 +80,8 @@
                 <div class="row">
                     <div class="ui form">
                         <div class="field">
-                          <label>Event</label>
-                          <select class="ui search dropdown">
+                          <!-- <label>Event</label> -->
+                          <select class="ui search dropdown" id="eventPick">
                             <option value="">Select Event</option>
                             <option value="WLK">Walk</option>
                             <option value="MEL">Meal</option>
@@ -90,7 +93,20 @@
                             <option value="SLP">Sleep</option>
                           </select>
                         </div>
-                      </div>
+                    </div>
+                    <div class="ui form">
+                        <div class="field">
+                          <!-- <label>Event</label> -->
+                          <select class="ui search dropdown" id="eventDetails">
+                            <option value="">Event Details</option>
+                            <!-- Form options filled via JS -->
+                          </select>
+                        </div>
+                    </div>
+                    <div class="ui input focus">
+                        <input type="text" placeholder="Notes" id="eventNotes">
+                    </div>
+                    <button class="ui blue button" id="logSubmit">Submit Event</button>
                 </div>
             </div>
         </div>
@@ -100,10 +116,30 @@
         <div id="log">
             <div class="ui stackable centered grid">
                 <div class="row">
-                    <h2 class="ui header">Log</h2>
+                    <h2 class="ui header" id="loggedEventsText">Log</h2>
                 </div>
                 <div class="row">
-                    <h3 class="ui header">Event 1:</h3>
+                    <table class="ui single line table"> <!-- DEBUG -->
+                        <thead>
+                          <tr>
+                            <th>Date</th>
+                            <th>Event</th>
+                            <th>Event Details</th>
+                            <th>Notes</th>
+                            <th>Caretaker</th>
+                          </tr>
+                        </thead>
+                        <tbody id="logTable">
+                          <!-- <tr>
+                            <td>Thu Jun 11 2020 18:30:40 GMT-0400 (EDT)</td>
+                            <td>Walk</td>
+                            <td>1.5 miles</td>
+                            <td>Example</td>
+                            <td>Bob</td>
+                          </tr> -->
+                          <!-- Table filled via JS -->
+                        </tbody>
+                      </table>
                 </div>
             </div>
         </div>
